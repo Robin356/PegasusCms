@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
+    <PackageReference Include="Pegasus-Cms.Core" Version="1.0.0-alpha1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\vendor\" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="call publish $(ProjectDir) C:\inetpub\wwwroot\pegasus-cms\ $(ConfigurationName)" />
+  </Target>
+
+</Project>
