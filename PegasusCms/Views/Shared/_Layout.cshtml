@@ -25,12 +25,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="pc-main-menu navbar-nav flex-grow-1">
                         @foreach (var menuItem in mainMenu.MenuItems)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark @(menuItem.Active ? "active" : string.Empty)" @(menuItem.Active ? "aria-current=\"true\"" : string.Empty) href="@Html.Raw(menuItem.Url)">@menuItem.Title</a>
-                            </li>
+                            @Html.MenuItem(menuItem, "text-dark");
                         }
                     </ul>
                 </div>
@@ -45,9 +43,7 @@
                     <ul class="list-unstyled">
                         @foreach (var menuItem in sideMenu.MenuItems)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link @(menuItem.Active ? "active" : string.Empty)" @(menuItem.Active ? "aria-current=\"true\"" : string.Empty) href="@Html.Raw(menuItem.Url)">@menuItem.Title</a>
-                            </li>
+                            @Html.MenuItem(menuItem);
                         }
                     </ul>
                 </nav>

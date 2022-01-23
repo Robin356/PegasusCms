@@ -84,11 +84,16 @@ namespace PegasusCms.Controllers
                     if (level1Page.ShowInMenu)
                     {
                         var menuItem = MenuItemFromPage(level1Page);
-                        if (menuItem.Active && level1Page.InnerNode.ChildCount > 0)
+                        if (level1Page.InnerNode.ChildCount > 0)
                         {
-                            // Recursive in Sidebar
-                            sideMenuItems = new List<MenuItem>();
-                            AddSubitemsToMenu(sideMenuItems, level1Page);
+                            var subMenuItems = new List<MenuItem>();
+                            AddSubitemsToMenu(subMenuItems, level1Page);
+                            menuItem.SubMenuItems = subMenuItems;
+                            if (menuItem.Active)
+                            {
+                                // Active in sidebar
+                                sideMenuItems = subMenuItems;
+                            }
                         }
                         menuItems.Add(menuItem);
                     }

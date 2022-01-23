@@ -30,6 +30,9 @@ body {
         grid-template-areas: "sidebar main";
         grid-template-columns: 1fr 3fr;
     }
+    ul.pc-main-menu ul {
+        display: none;
+    }
 }
 
 @media (min-width: 992px) {
@@ -38,11 +41,15 @@ body {
     }
 }
 
+ul.pc-main-menu ul {
+    padding-left: 15px;
+}
+
 .pc-sidebar {
     grid-area: sidebar;
     position: sticky;
     top: 5rem;
-    height: calc(100vh - 7rem);
+    height: calc(100vh - 15rem);
     padding-left: 0.25rem;
     margin-left: -0.25rem;
     overflow-y: auto;
