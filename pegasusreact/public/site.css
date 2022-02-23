@@ -55,7 +55,7 @@ ul.pc-main-menu ul {
     overflow-y: auto;
 }
 
-.pc-links a {
+.pc-links button {
     padding: 0.1875rem 0.5rem;
     margin-top: 0.125rem;
     margin-left: 1.25rem;
@@ -63,7 +63,12 @@ ul.pc-main-menu ul {
     text-decoration: none;
 }
 
-.pc-links a.active {
+.pc-links button:active, .pc-links button:active:focus, .pc-links button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.pc-links button.active {
     font-weight: 600;
 }
 
@@ -84,4 +89,8 @@ ul.level-1 {
 img.screenshot {
     border: 1px solid var(--bs-gray-400);
     border-radius: 5px;
+}
+
+.hidden {
+    display: none;
 }

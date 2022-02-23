@@ -7,7 +7,7 @@ namespace PegasusCms.Extensions
 {
     public static class HtmlHelperExtensions
     {
-        public static IHtmlContent MenuItem(this IHtmlHelper html, MenuItem menuItem, string cssClass = null)
+        public static IHtmlContent MenuItem(this IHtmlHelper html, MenuItem menuItem, int level, string cssClass = null)
         {
             var li = new TagBuilder("li");
             li.AddCssClass("nav-item");
@@ -28,10 +28,10 @@ namespace PegasusCms.Extensions
             if (menuItem.SubMenuItems != null)
             {
                 var ul = new TagBuilder("ul");
-                ul.AddCssClass("list-unstyled");
+                ul.AddCssClass($"level-{level}");
                 foreach (var subMenuItem in menuItem.SubMenuItems)
                 {
-                    var subMenu = MenuItem(html, subMenuItem, cssClass);
+                    var subMenu = MenuItem(html, subMenuItem, level + 1, cssClass);
                     ul.InnerHtml.AppendHtml(subMenu);
                 }
                 li.InnerHtml.AppendHtml(ul);

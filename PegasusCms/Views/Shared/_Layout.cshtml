@@ -28,7 +28,7 @@
                     <ul class="pc-main-menu navbar-nav flex-grow-1">
                         @foreach (var menuItem in mainMenu.MenuItems)
                         {
-                            @Html.MenuItem(menuItem, "text-dark");
+                            @Html.MenuItem(menuItem, 1, "text-dark");
                         }
                     </ul>
                 </div>
@@ -43,7 +43,7 @@
                     <ul class="list-unstyled">
                         @foreach (var menuItem in sideMenu.MenuItems)
                         {
-                            @Html.MenuItem(menuItem);
+                            @Html.MenuItem(menuItem, 1);
                         }
                     </ul>
                 </nav>
